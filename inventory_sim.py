@@ -55,11 +55,19 @@ def inventory_simulation(capacity,reorder_level,reps,seed=None):
         for day in range(horizon):
             # generate demand
             demand = rng.poisson(mean_demand)
+           
             # calculate revenue
             revenue = min(inventory, demand)*price
             
-            # stockout?
-            stockout = 1 if demand > inventory else 0
+            # stockout?          
+            
+            # BUG = stockout = 1 if demand > inventory else 0
+
+            if demand > inventory: 
+                stockout = 1
+            
+            else: 
+                stockout = 0
             
             # update the inventory
             inventory = min(inventory - demand, 0)
