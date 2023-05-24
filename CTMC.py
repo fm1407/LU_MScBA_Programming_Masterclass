@@ -9,6 +9,10 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# Test changes
+print("TEST")
+
+
 def CTMC(horizon, initial_state, generator, dt = 0.01):
     """
     A function to numerically integrate a continuous time Markov chain.
